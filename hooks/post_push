@@ -1,0 +1,6 @@
+#!/bin/bash
+
+VERSION=$(docker run --rm -it $DOCKER_REPO:latest --version | head -1 | cut -d ' ' -f 2)
+
+docker tag $DOCKER_REPO:latest $DOCKER_REPO:$VERSION
+docker push $DOCKER_REPO:$VERSION
